@@ -34,6 +34,8 @@ struct PlaceLookupView: View {
             .searchable(text: $searchText)
             .onChange(of: searchText, {
                 if !searchText.isEmpty {
+                    //note: can add to search text
+                    // let newSearchText = "restaurant" + searchText
                     placeVM.search(text: searchText, region: locationManager.region)
                 } else {
                     placeVM.places = []
