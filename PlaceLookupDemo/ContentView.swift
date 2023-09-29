@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var locationManager: LocationManager
+    
     var body: some View {
-        VStack {
+        VStack (alignment: .leading){
             Image(systemName: "globe")
-                .imageScale(.large)
+                .resizable()
+                .scaledToFit()
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Spacer()
+            Text("Location:\n lat: \(locationManager.location?.coordinate.latitude ?? 0.0)\n long: \(locationManager.location?.coordinate.longitude ?? 0.0)")
+                .font(.title)
+            Spacer()
         }
         .padding()
     }
@@ -21,4 +27,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(LocationManager())
 }
