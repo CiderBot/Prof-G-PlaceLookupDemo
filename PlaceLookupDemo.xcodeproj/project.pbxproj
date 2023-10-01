@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA282E8F2AC9328A005DE348 /* LookupExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA282E8E2AC9328A005DE348 /* LookupExtra.swift */; };
+		AA282E912AC93558005DE348 /* PlaceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA282E902AC93558005DE348 /* PlaceType.swift */; };
 		AA2CA0CA2AC644AD00771674 /* PlaceLookupDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2CA0C92AC644AD00771674 /* PlaceLookupDemoApp.swift */; };
 		AA2CA0CC2AC644AD00771674 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2CA0CB2AC644AD00771674 /* ContentView.swift */; };
 		AA2CA0CE2AC644AF00771674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA2CA0CD2AC644AF00771674 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA282E8E2AC9328A005DE348 /* LookupExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupExtra.swift; sourceTree = "<group>"; };
+		AA282E902AC93558005DE348 /* PlaceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceType.swift; sourceTree = "<group>"; };
 		AA2CA0C62AC644AD00771674 /* PlaceLookupDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaceLookupDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2CA0C92AC644AD00771674 /* PlaceLookupDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceLookupDemoApp.swift; sourceTree = "<group>"; };
 		AA2CA0CB2AC644AD00771674 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 				AA2CA0E12AC69F8A00771674 /* Model */,
 				AA2CA0CB2AC644AD00771674 /* ContentView.swift */,
 				AA2CA0DB2AC6903100771674 /* PlaceLookupView.swift */,
+				AA282E8E2AC9328A005DE348 /* LookupExtra.swift */,
 				AA2CA0CD2AC644AF00771674 /* Assets.xcassets */,
 				AA2CA0CF2AC644AF00771674 /* Preview Content */,
 			);
@@ -87,6 +92,7 @@
 				AA2CA0D82AC645EB00771674 /* LocationManager.swift */,
 				AA2CA0DD2AC6924B00771674 /* Place.swift */,
 				AA2CA0DF2AC69F8000771674 /* PlaceViewModel.swift */,
+				AA282E902AC93558005DE348 /* PlaceType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,9 +168,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA2CA0CC2AC644AD00771674 /* ContentView.swift in Sources */,
+				AA282E912AC93558005DE348 /* PlaceType.swift in Sources */,
 				AA2CA0CA2AC644AD00771674 /* PlaceLookupDemoApp.swift in Sources */,
 				AA2CA0DC2AC6903100771674 /* PlaceLookupView.swift in Sources */,
 				AA2CA0D92AC645EB00771674 /* LocationManager.swift in Sources */,
+				AA282E8F2AC9328A005DE348 /* LookupExtra.swift in Sources */,
 				AA2CA0E02AC69F8000771674 /* PlaceViewModel.swift in Sources */,
 				AA2CA0DE2AC6924B00771674 /* Place.swift in Sources */,
 			);

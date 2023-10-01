@@ -11,6 +11,7 @@ import MapKit
 struct ContentView: View {
     @EnvironmentObject var locationManager: LocationManager
     @State private var showPlaceLookupSheet = false
+    @State private var showLookupExtraSheet = false
     @State var returnPlace = Place(mapItem: MKMapItem())
     
     var body: some View {
@@ -28,18 +29,27 @@ struct ContentView: View {
             }
             .padding()
             .toolbar {
-                ToolbarItem(placement: .bottomBar) {
+                ToolbarItemGroup(placement: .bottomBar) {
                     Button(action: {
                         showPlaceLookupSheet.toggle()
                     }, label: {
                         Image(systemName: "magnifyingglass")
                         Text("Lookup Place")
                     })
+                    Button(action: {
+                        showLookupExtraSheet.toggle()
+                    }, label: {
+                        Image(systemName: "magnifyingglass")
+                        Text("Lookup Extra")
+                    })
                 }
             }
         }
         .fullScreenCover(isPresented: $showPlaceLookupSheet, content: {
             PlaceLookupView(returnedPlace: $returnPlace)
+        })
+        .fullScreenCover(isPresented: $showLookupExtraSheet, content: {
+            LookupExtra(returnedPlace: $returnPlace)
         })
     }
 }
