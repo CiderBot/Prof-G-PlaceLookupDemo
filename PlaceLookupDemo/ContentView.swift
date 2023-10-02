@@ -17,15 +17,15 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack (alignment: .leading){
-                Image(systemName: "globe")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundStyle(.tint)
-                Spacer()
                 Text("Location:\n lat: \(locationManager.location?.coordinate.latitude ?? 0.0)\n long: \(locationManager.location?.coordinate.longitude ?? 0.0)")
                     .font(.title)
                 Text("\nReturned Place\nName: \(returnPlace.name)\nAddress:\(returnPlace.address)\nCoords: \(returnPlace.latitude), \(returnPlace.longitude)")
                 Spacer()
+                let cameraBounds = MapCameraBounds(centerCoordinateBounds: locationManager.region, minimumDistance: 1.0, maximumDistance: 10000.0)
+                Map(bounds: cameraBounds, interactionModes: .all) {
+
+                    /*Marker("My Location", coordinate: locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 37.785834, longitude: -122.406417))*/
+                }
             }
             .padding()
             .toolbar {
@@ -51,6 +51,9 @@ struct ContentView: View {
         .fullScreenCover(isPresented: $showLookupExtraSheet, content: {
             LookupExtra(returnedPlace: $returnPlace)
         })
+//        .onAppear {
+//            cameraPosition = MapCameraPosition.region(locationManager.region)
+//        }
     }
 }
 
