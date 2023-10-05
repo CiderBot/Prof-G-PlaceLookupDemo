@@ -13,6 +13,10 @@ class LocationManager: NSObject, ObservableObject {
     @Published var location: CLLocation?
     @Published var region = MKCoordinateRegion()
     
+    // setting some default in case we can not get the location
+    let appleHQLoc = CLLocation(latitude: 37.3359404078055, longitude: -122.0083711891967).coordinate
+    let appleHQReg = MKCoordinateRegion(center: CLLocation(latitude: 37.3359404078055, longitude: -122.0083711891967).coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
+    
     private let locationManager = CLLocationManager()
     
     override init () {  // overrides existing initializer

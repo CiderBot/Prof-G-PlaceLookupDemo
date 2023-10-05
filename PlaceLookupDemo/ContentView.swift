@@ -21,10 +21,24 @@ struct ContentView: View {
                     .font(.title)
                 Text("\nReturned Place\nName: \(returnPlace.name)\nAddress:\(returnPlace.address)\nCoords: \(returnPlace.latitude), \(returnPlace.longitude)")
                 Spacer()
-                let cameraBounds = MapCameraBounds(centerCoordinateBounds: locationManager.region, minimumDistance: 1.0, maximumDistance: 10000.0)
-                Map(bounds: cameraBounds, interactionModes: .all) {
 
-                    /*Marker("My Location", coordinate: locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 37.785834, longitude: -122.406417))*/
+                // map to current location or Apple HQ if location info does not exist
+                let cameraPosition = (locationManager.location == nil) ? MapCameraPosition.region(locationManager.appleHQReg) :
+                    MapCameraPosition.region(locationManager.region)
+                
+                Map(initialPosition: cameraPosition) {
+                    
+                    /*Marker("", systemImage: "circle.circle.fill", coordinate: locationManager.location?.coordinate ?? locationManager.appleHQLoc)
+                        .tint(.blue)*/
+                    Annotation("", coordinate: locationManager.location?.coordinate ?? locationManager.appleHQLoc) {
+                        Image(systemName: "circle.circle.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.blue)
+                    }
+                    if returnPlace.latitude != 180.0 {
+                        Marker(returnPlace.name, coordinate: CLLocationCoordinate2D(latitude: returnPlace.latitude, longitude: returnPlace.longitude))
+                    }
                 }
             }
             .padding()
@@ -51,9 +65,6 @@ struct ContentView: View {
         .fullScreenCover(isPresented: $showLookupExtraSheet, content: {
             LookupExtra(returnedPlace: $returnPlace)
         })
-//        .onAppear {
-//            cameraPosition = MapCameraPosition.region(locationManager.region)
-//        }
     }
 }
 
