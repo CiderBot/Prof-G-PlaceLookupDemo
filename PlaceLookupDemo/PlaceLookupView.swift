@@ -17,7 +17,7 @@ struct PlaceLookupView: View {
     @Binding var returnedPlace: Place
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             List(placeVM.places) {place in
                 VStack (alignment: .leading) {
                     Text(place.name)

@@ -18,7 +18,7 @@ struct LookupExtra: View {
     @Binding var returnedPlace: Place
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             Picker("Type", selection: $placeType) {
                 ForEach(PlaceType.allCases) { pType in
                     Text(pType.rawValue.capitalized)
